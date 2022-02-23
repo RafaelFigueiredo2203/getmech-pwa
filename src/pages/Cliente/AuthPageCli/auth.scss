@@ -1,0 +1,137 @@
+.AuthBody{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .Enterimg{
+    margin-top:45px;
+    width: 203px;
+    height: 119px;
+  }
+  h3{
+    margin-top: 40px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+  }
+  .google{
+    margin-top:55px;
+    width: 268px;
+    height: 38px;
+    border-style: none;
+    background: #EAE8E8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    cursor: pointer;
+   
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 90px;
+    
+      
+    color: #524C4C;
+
+}
+.google img{
+  margin-right: 60px;
+  
+  width: 36px;
+  height: 33px;
+}
+.google:active{
+  filter: brightness(80%)
+}
+
+    .facebook{
+      cursor: pointer;
+      margin-top:35px;
+      border-style:none ;
+      width: 268px;
+      height: 38px;
+
+      background: #3B5998;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+
+
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      color: #FFFFFF;
+
+      img.FacebookLogo{
+        margin-left: 10px;
+        margin-right: 50px;
+        width: 30px;
+        height: 30px;
+      }
+     
+    }
+    .facebook:active{
+      filter: brightness(60%)
+    }
+
+    .Email_senha{
+      cursor: pointer;
+      margin-top:35px;
+      margin-bottom: -30px;
+      width: 268px;
+      height: 38px;
+      border-style:none ;
+      background: #F56D00;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+
+      color: #FFFFFF;
+
+    }
+    .Email_senha:active{
+      filter: brightness(60%)
+    }
+    .cadastre-se{
+      cursor: pointer;
+      margin-top:35px;
+      width: 268px;
+      height: 38px;
+      border-style:none ;
+      background: #F56D00;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+
+      color: #FFFFFF;
+
+    }
+    .cadastre-se:active{
+      filter: brightness(60%)
+    }
+}

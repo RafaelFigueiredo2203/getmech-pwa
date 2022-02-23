@@ -1,0 +1,136 @@
+div.home{
+
+
+  header.headerHome{
+    width: 100%;
+    height: 55px;
+    background: #F56D00;
+    padding: 10px;
+
+    a{
+      width:106px;
+      text-align: right;
+      text-decoration: none;
+      color:#000000;
+      padding-right:10px;
+    
+      h1{
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 30px;
+      
+    }
+  }
+  }
+
+    div.logo{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 601px;
+
+      background: rgba(245, 145, 65, 0.25);
+      background-blend-mode: multiply;
+      mix-blend-mode: normal;
+      border-radius: 8px;
+      img.logo{
+        margin-top: -10px;
+      }
+      h2{
+        margin-top:80px;
+        margin-left: 40px;
+        margin-right: 40px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+
+        color: #000000;
+
+      }
+    }
+    .body{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    img.firstSvg{
+      margin-top:60px;
+      width: 202px;
+      height: 178px;
+    }
+    h3{
+      margin-top:60px;
+        margin-left: 40px;
+        margin-right: 40px;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+
+      color: #000000;
+    }
+    span{
+      margin-top:60px;
+      margin-bottom: 60px;
+      width: 105px;
+      height: 0px;
+
+      border: 1px solid #000000;
+    }
+
+    .bestPlace{
+      width: 237px;
+      height: 122px;
+    }
+
+    .destination{
+      width: 238px;
+      height: 140px;
+
+    }
+
+    .endSvg{
+      margin-top:30px;
+      width: 240px;
+      height: 165px;
+    }
+
+    .btnEntrar{
+      text-decoration: none;
+      list-style: none;
+      margin-top:60px;
+      margin-bottom: 60px;
+      width: 160px;
+      height: 47px;
+      border: #F56D00;
+      cursor: pointer;
+
+      background: #F56D00;
+      border-radius: 5px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 40px;
+        text-align: center;
+
+        color: #FFFFFF;
+      
+      
+    }
+    .btnEntrar:active{
+      filter: brightness(50%);
+      transition: 0.1s;
+     }
+  }
+  }
