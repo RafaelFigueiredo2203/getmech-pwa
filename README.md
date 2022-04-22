@@ -38,6 +38,9 @@ GetMech é meu Trabalho de Conclusão de Curso da FATEC de Ourinhos/SP.
 Este projeto tem o objetivo de auxiliar motoristas e oficinas mecânicas, motoristas em casos que precisem de serviços mecânicos e oficinas que estão buscando atrair mais clientes, simplificando os atendimentos com a plataforma!
 
 
+## 💻💅🏻 Figma do Projeto
+
+- [Figma GetMech](https://www.figma.com/file/yZXCE42Oiew3FR9KmqF6mk/getMech-Origin?node-id=0%3A1)
 
 ## 🚀 Como executar
 
