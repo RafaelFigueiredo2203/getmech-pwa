@@ -34,16 +34,16 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Filmaria é uma aplicação  para você escolher,assistir e salvar seus filmes .
+GetMech é meu Trabalho de Conclusão de Curso da FATEC de Ourinhos/SP.
+Este projeto tem o objetivo de auxiliar motoristas e oficinas mecânicas, motoristas em casos que precisem de serviços mecânicos e oficinas que estão buscando atrair mais clientes, simplificando os atendimentos com a plataforma!
 
 
 
 ## 🚀 Como executar
 
 - Clone o repositório
-- Instale as dependências com `yarn`
-- Inicie a fake api com `yarn server`
-- Inicie o servidor com `yarn dev`
+- Instale as dependências com `yarn` ou `npm install`
+- Inicie o servidor com `yarn start` ou `npm start`
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
