@@ -1,0 +1,75 @@
+
+div.btndiv{
+  width: 100%;
+  margin-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  
+  
+  position: fixed;
+  bottom:0;
+  left: 0;
+  a.btn1{
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+.btn1{
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  
+  color: #000000;
+  
+  
+  width: 228px;
+  height: 43px;
+  
+  background: #F56D00;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px ;
+  border-style: none;
+}
+.btn{
+
+margin-top: 57px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+
+color: #000000;
+
+
+width: 228px;
+height: 43px;
+
+background: #F56D00;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px ;
+border-style: none;
+}
+
+.btn:active{
+  transition: all;
+  transform: perspective(2);
+  color: aliceblue;
+  background-color: #e78e45;
+}
+.btn1:active{
+  transition: all;
+  transform: perspective(2);
+  color: aliceblue;
+  background-color: #e78e45;
+}
+}

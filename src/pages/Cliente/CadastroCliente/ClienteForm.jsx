@@ -1,16 +1,17 @@
-import  { useState } from 'react';
+import  { useContext, useState } from 'react';
 
 import './clienteForm.scss';
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import Saveimg from '../../../assets/imgs/undraw_collecting_fjjl.svg';
+
 import MaskInput from '../../../components/MaskInput.js';
 import { useForm } from "react-hook-form";
-import ImageUploading from 'react-images-uploading';
+
 import firebase from '../../../services/firebase/firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-import { Redirect } from 'react-router-dom';
+
+import {  toast } from "react-toastify";
+import { useHistory , Redirect } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/auth';
 
 
 
@@ -23,9 +24,12 @@ const initialValues = {
 
 
 
+
 export function ClienteForm(){
   const auth = getAuth();
  //use para o que quiser.
+ 
+ const history = useHistory();
 
   const {
     register,
@@ -33,6 +37,10 @@ export function ClienteForm(){
     getValues,
     handleSubmit
   } = useForm();
+
+ 
+    
+   
 
     const [values,setValues] = useState(initialValues);
   
@@ -47,10 +55,12 @@ export function ClienteForm(){
       });
     }
 
+
+
     async function onSubmit (data)  {
       setIsBusy(true);
       
-     await  createUserWithEmailAndPassword(auth, data.email, data.passwordConfirmation)
+     await  createUserWithEmailAndPassword(auth, data.email, data.senha)
       .then((userCredential) => {
         // Signed in
          
@@ -62,34 +72,35 @@ export function ClienteForm(){
           nome:data.nome,
           cpf:data.cpf,
           email:data.email,
-          senha:data.passwordConfirmation,
+          senha:data.senha,
           phoneNumber:data.phoneNumber,
           end:data.end,
           city:data.city,
           gen:data.gen,
           state:data.state,
-          uid:user.uid
+          uid:user.uid,
+          urlPhoto:data.urlPhoto
+          
         })
-       .then(() => {
+       .then((data) => {
+         toast.success('🚀 Cadastrado com sucesso!');
+         
+          <Redirect to="/dashboard" />
+          history.push('/dashboard');
+          
+          
         
-        
-          // ...
+         // ...
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+        toast.error('⭕ E-mail existente ou erro no sistema!');
+          history.go(0);
           // ..
         });
        
         // ...
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-
-   
+     
       
      
         
@@ -100,63 +111,12 @@ export function ClienteForm(){
     
     
 
-  const [images, setImages] = useState([]);
-  const maxNumber = 69;
-
-  const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
-  };
-
+  
   return(
     <div className="form-client">
       <header className=" form-cliente-header">
       
-        <ImageUploading
-        multiple
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <div className="addFoto" >
-            <button
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-              className="addAPhoto"
-            >
-              <AddAPhotoIcon className="iconPhoto" />
-            </button>
-            &nbsp;
-            
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img onSubmit={handleSubmit(onSubmit)} src={image['data_url']} alt="" width="100"  className="userImg"
-                {...register("userImg")}
-                />
-                 
-                <div className="image-item__btn-wrapper">
-                  
-                  <button className="removeImg" onClick={() => onImageRemove(index)}><DeleteForeverOutlinedIcon className="icon"/></button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </ImageUploading>
-        
+       <h1>Cadastro</h1>
         
       </header>
 
@@ -164,6 +124,14 @@ export function ClienteForm(){
         <section  className="form-cliente" >
 
           <section>
+            <form  onSubmit={handleSubmit(onSubmit)}>
+            <label >*Url/Link de uma foto sua:</label>
+          <input type="text" name="urlPhoto"  {...register("urlPhoto", { required: "Foto  é obrigatório!" })}
+              />
+              {errors.urlPhoto && (
+                <p style={{ color: "red" }}>{errors.nome.message}</p>
+              )}
+
           <label >*Nome:</label>
           <input type="text" name="nome"  {...register("nome", { required: "Nome  é obrigatório!" })}
               />
@@ -201,7 +169,7 @@ export function ClienteForm(){
               )}
 
           <label >*Confirmar senha:</label>
-          <input type="password"    {...register("passwordConfirmation",{
+          <input type="password"    {...register("senha",{
                 required: "Por Favor confirme a senha!",
                 validate: {
                   matchesPreviousPassword: (value) => {
@@ -211,9 +179,9 @@ export function ClienteForm(){
                 }
               })}
             />
-            {errors.passwordConfirmation && (
+            {errors.senha && (
               <p style={{ color: "red" }}>
-                {errors.passwordConfirmation.message}
+                {errors.senha.message}
               </p>
             )} 
 
@@ -242,7 +210,7 @@ export function ClienteForm(){
           </fieldset>
 
           <label >Estado:</label>
-          <select   {...register("state")} >
+          <select  defaultValue="" {...register("state")} >
             <option value="AC">AC</option>
             <option value="AP">AP</option>
             <option value="AM">AM </option>
@@ -271,19 +239,23 @@ export function ClienteForm(){
             <option value="MT">MT</option>
             <option value="MS">MS</option>
              </select>
+             <div className="submit-area">
+             <button type="submit" disabled={isBusy}  >Salvar</button>
+             </div>
+             </form>
 </section>
              
 
-            <div className="submit-area">
-          <button type="submit" disabled={isBusy} >Salvar</button>
-          <img src={Saveimg}  className="Saveimg" alt="saveimg" />
+        
+          
          
-          </div>
+          
           
       
           </section>
 
       </div>
+    
     </div>
   );
               }

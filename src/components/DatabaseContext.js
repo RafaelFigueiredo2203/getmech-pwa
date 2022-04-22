@@ -11,9 +11,9 @@ export function DbContextProvider(props){
   
 
 
- async function writeUserData(userId, name, email, imageUrl, cel , city , cpf , end ,password , state) {
+ async function writeUserData(userId, name, email, imageUrl, cel , city ,gen, cpf , end ,password , state) {
     const db = getDatabase();
-    set(ref(db, 'users/cliente/' + userId), {
+    set(ref(db, 'userClient' + userId), {
       nome: name,
       email: email,
       profile_picture : imageUrl,
@@ -22,6 +22,7 @@ export function DbContextProvider(props){
       phoneNumber: cel,
       endereco: end,
       city: city,
+      gen:gen,
       state: state
   
   

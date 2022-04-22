@@ -11,97 +11,37 @@
     justify-content: center;
 
     width: 100%;
-    height: 298px;
+    height: 250px;
     
     background: #F56D00;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
-    .addFoto{
-      margin-bottom: 40px;
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      width: 171px;
-      height: 171px;
-      
-      border-radius: 100%;
-      background: #C4C4C4;
-      
-
-
-      .addAPhoto{
-        cursor: pointer;
-        margin-top: 35px;
-        width: 171px;
-        height: 171px;
-        background: #C4C4C4;
-        border-style: none;
-        border-radius: 100%;
-        
-        
-        
-      }
-      .iconPhoto{
-        width:64px;
-        height:64px;
-      }
-      .image-item{
-        border-radius: 100%;
-        
-        margin-bottom: 25px;
-      position: absolute;
-      float: top;
+   
+     
+    h1{
+      margin-bottom: 25px;
+      color: #FFFFFF;
+      font-family:  Poppins, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 28px;
+      line-height: 24px;
       display: flex;
-      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      width: 180px;
-      height: 250px;
-      
-      
-
-      .userImg{
-      
-        margin-top: 25px;
-        width: 171px;
-        border-radius: 100%;
-      }
-      .removeImg{
-        
-       margin-left: -20px;
-       margin-top: 25px;
-        position: absolute;
-        float:top;
-        list-style: none;
-        border-style: none;
-        border-radius: 100%;
-        background-color: #F56D00;
-        border: 2px solid #ffffff;
-        width:50px;
-        height:50px;
-      }
-      .icon{
-        width:30px;
-       height:50px;
-      }
-      }
-
+      text-align: center;
     }
-    
 
 
   }
 
   .form-cliente{
-    margin-top: -50px;
+    margin-top: -120px;
     margin-bottom:40px;
     position: relative;
     float: center;
     width: 295px;
-    height: 1030px;
+    height: 1300px;
 
     background: #FFFFFF;
     border: 1px solid #F56D00;
@@ -126,6 +66,38 @@
 
       color: #000000;
 
+    }
+    .fotouploader{
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      .btnup{
+        border-radius: 5px;
+        font-size: 20px;
+        border: #F56D00 solid 1px;
+        align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      }
+      .btnup:active{
+        transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      .btnup::after{
+        content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+      }
     }
     input{
      padding-left: 5px;
@@ -175,34 +147,35 @@
       justify-content: center;
       margin-top: 40px;
       
+      button{
       
-
-    button{
-      width: 161px;
-      height: 46px;
-      border-style: none;
-      background: #F56D00;
-      border-radius: 5px;
-
-      font-family: Poppins;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 36px;
-      text-align: center;
-      cursor: pointer;
-
-      color: #FFFFFF;
+        width: 161px;
+        height: 46px;
+        border-style: none;
+        background: #F56D00;
+        border-radius: 5px;
+  
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+        cursor: pointer;
+  
+        color: #FFFFFF;
+      }
+  
+      .Saveimg{
+        margin-top:5px;
+        width: 103px;
+        height: 80px;
+      }
+      button:active{
+        filter: brightness(60%)
+      }
     }
 
-    .Saveimg{
-      margin-top:5px;
-      width: 103px;
-      height: 80px;
-    }
-    button:active{
-      filter: brightness(60%)
-    }
-  }
+   
   }
 }
