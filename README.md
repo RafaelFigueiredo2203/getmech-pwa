@@ -6,7 +6,7 @@ GetMech - PWA
 
 <br>
 
-
+<h1 align="center" >
 
 
   <img src="https://user-images.githubusercontent.com/60237326/164804926-bd9f9015-34cd-45b5-abde-6250366baab3.png"/>
