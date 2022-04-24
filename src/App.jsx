@@ -5,7 +5,7 @@ import {BrowserRouter}  from 'react-router-dom';
 import Routes from './routes';
 import AuthProvider from './Contexts/auth';
 import { ToastContainer } from 'react-toastify';
-
+import "rsuite/dist/rsuite.min.css";
 
 
 function App() {

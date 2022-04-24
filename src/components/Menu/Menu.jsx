@@ -5,6 +5,9 @@ import  firebase  from '../../services/firebase/firebase';
 import './styles.css';
 import { AuthContext } from '../.././Contexts/auth';
 
+import Button from 'rsuite/Button';
+import "rsuite/dist/rsuite.min.css";
+
   const isMenuOpen = true;
 
 
@@ -30,7 +33,7 @@ export const Menu = ({ isMenuOpen }: IMenuProps) => {
 
       <div className="bodyMenu">
       <footer>
-      <button onClick={ () => signOut() }>Fazer logout</button>
+      <Button color="orange" appearance="primary" onClick={ () => signOut() }>Fazer logout</Button>
       
       </footer>
       </div>

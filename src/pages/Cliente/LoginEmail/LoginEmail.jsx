@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
 import './styles/loginemail.scss';
 
+import Button from 'rsuite/Button';
+import "rsuite/dist/rsuite.min.css";
 
 import IconButton from "@material-ui/core/IconButton";
-import InputLabel from "@material-ui/core/InputLabel";
+
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -57,7 +59,7 @@ export function LoginEmail(){
 
       <form onSubmit={handleSignIn}>
         <label>E-mail: </label>
-        <input className="input" type="text" value={email} name="email" id="email" onChange={ (e) => setEmail(e.target.value)} />
+        <input className="input" type="email" value={email} name="email" id="email" onChange={ (e) => setEmail(e.target.value)} />
 
         
         <label>Senha:</label>
@@ -77,7 +79,7 @@ export function LoginEmail(){
         }
       />
 
-        <button type="submit"  className="enter">{loadingAuth ? 'Carregando...' : 'Entrar'}</button>
+        <Button type="submit"  className="enter">{loadingAuth ? 'Carregando...' : 'Entrar'}</Button>
       </form>
 
       <a href="/recoverpassword">Recuperar senha</a>

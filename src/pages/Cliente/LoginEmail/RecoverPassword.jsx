@@ -11,9 +11,12 @@ export function RecoverPassword(){
   const history = useHistory();
   const [email, setEmail]  = useState('');
   const { user} = useContext(AuthContext);
+  const [isBusy, setIsBusy] = useState(false);
+
 
 
     function handleRecovery(){
+      setIsBusy(true);
    firebase.auth().sendPasswordResetEmail(email);
    toast.success('✅ E-mail enviado com sucesso');
    setTimeout(50000);
@@ -32,10 +35,10 @@ export function RecoverPassword(){
 
         <h2>Digite seu e-mail:</h2>
 
-        <form action="">
-          <input type="e-mail"  value={email} name="email" id="email" onChange={ (e) => setEmail(e.target.value)}  />
+        <form onSubmit={handleRecovery}>
+          <input type="e-mail"  value={email} name="email" id="email" onChange={ (e) => setEmail(e.target.value)} required  />
           
-          <button onClick={handleRecovery}  className="Enviar">
+          <button type="submit"  disabled={isBusy}  className="Enviar">
         
            Enviar
            

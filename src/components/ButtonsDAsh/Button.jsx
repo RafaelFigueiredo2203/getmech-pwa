@@ -1,6 +1,7 @@
-import Button from  '@material-ui/core/Button';
+import Button from 'rsuite/Button';
 import { Link, Redirect, useHistory } from 'react-router-dom';
-import './style.scss'
+import './style.scss';
+import "rsuite/dist/rsuite.min.css";
 
 export  function Buttoon(){
 
@@ -9,7 +10,7 @@ export  function Buttoon(){
   return(
     <div className='btndiv'>
     <a target="blank"href="https://www.google.com/maps/search/oficina+mecanica/" variant="btn"className="btn1"  >Buscar Mecânico</a>
-    <button variant="btn" onClick={() => history.push('./ordem')} className="btn">Ordem de Serviço</button>
+    <Button  variant="btn" onClick={() => history.push('./ordem')} className="btn">Ordem de Serviço</Button>
     </div>
   )
 }

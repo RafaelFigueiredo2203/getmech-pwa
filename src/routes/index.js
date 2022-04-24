@@ -16,6 +16,7 @@ import { EmailNotification } from '../pages/Cliente/LoginEmail/EmailNotification
 import { LoginEmail } from '../pages/Cliente/LoginEmail/LoginEmail';
 import { NewPassword } from '../pages/Cliente/LoginEmail/NewPassword';
 import { Ordem } from '../pages/Cliente/Ordem/Ordem';
+import Success from '../pages/Cliente/Ordem/Success';
 
 
 
@@ -33,6 +34,7 @@ export default function Routes(){
     <Route exact path="/cliente-form" component={ClienteForm} />
     <Route exact path="/dashboard" component={Dashboard} isPrivate/>
     <Route exact path="/ordem" component={Ordem} isPrivate/>
+    <Route exact path="/ordemSuccess" component={Success} isPrivate/>
 
   </Switch>
   )
