@@ -1,6 +1,6 @@
 import * as React from "react";
-
-import { useContext, useState,  } from 'react';
+import {Door, User, ClockCounterClockwise, ChatTeardropDots,ProjectorScreenChart} from "phosphor-react";
+import { useContext  } from 'react';
 import  firebase  from '../../services/firebase/firebase';
 import './styles.css';
 import { AuthContext } from '../.././Contexts/auth';
@@ -32,8 +32,39 @@ export const Menu = ({ isMenuOpen }: IMenuProps) => {
       </header>
 
       <div className="bodyMenu">
+
+        <div className="optionsMenu">
+
+        <Button appearance="primary" color="orange" className="buttonMenu">
+        <User className="UserIcon" size={20} color="#000000" weight="duotone" />
+        <span>Perfil</span>
+        </Button>
+
+        <Button appearance="primary" color="orange" className="buttonMenu">
+        <ClockCounterClockwise size={20} color="#050505" weight="duotone" />
+        <span>Histórico</span>
+        </Button>
+        
+        <Button appearance="primary" color="orange" className="buttonMenu">
+        <ChatTeardropDots size={20} color="#050505" weight="duotone" />
+        <span>Feedback</span>
+        </Button>
+        
+        <Button appearance="primary" color="orange" className="buttonMenu">
+        <ProjectorScreenChart size={20} color="#050505" weight="duotone" />
+        <span>Sobre</span>
+        </Button>
+        
+        
+
+        </div>
       <footer>
-      <Button color="orange" appearance="primary" onClick={ () => signOut() }>Fazer logout</Button>
+      <Button className="exitBtn" color="orange" appearance="primary" onClick={ () => signOut() }>
+      <Door className="door" size={20} color="#f5f5f5" weight="bold" />
+
+        Sair
+        
+        </Button>
       
       </footer>
       </div>

@@ -6,27 +6,48 @@ import { AuthContext } from '../Contexts/auth';
 
 export default function RouteWrapper({
   component: Component,
-  isPrivate,
-
+  isPrivateUser,
+  isPrivateEmp,
   ...rest
 }){
-  const { signed, loading } = useContext(AuthContext);
+  const { signed , user, loading } = useContext(AuthContext);
 
 
 
-  if(loading){
-    return(
-      <div></div>
-    )
-  }
+  
+ 
+ 
 
-  if(!signed && isPrivate){
+  // eslint-disable-next-line no-unreachable
+  if(!signed &&  isPrivateUser    ){
     return <Redirect to="/question" />
   }
- 
-  if(signed && !isPrivate ){
-    return <Redirect to="/dashboard" />
+  
+  if(signed &&  !isPrivateUser  ){
+   
+    
+    return <Redirect to="/dashboard" /> 
+   
+   
   }
+ 
+
+
+ 
+  
+
+ 
+  
+  
+ 
+
+  
+  
+ 
+
+ 
+  
+
   
   
 

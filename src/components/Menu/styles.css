@@ -35,7 +35,7 @@ h1.menuh1{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 9px;
+  margin-top: 5px;
   margin-left:25px;
   font-size: 1.75rem;
   color: #000000;
@@ -165,10 +165,65 @@ text-align: center;
 
 color: #000000;
 }
+div.optionsMenu{
+  width: 270px;
+  padding-left:10px;
+  margin-top:180px;
+  height:480px;
+  border-radius:10px;
+  border: 1px solid #F56D00;
+  background: rgba(245, 109, 0, 0.5);
+
+  
+  display: flex;
+  flex-direction:column;
+  
+}
+.buttonMenu{
+  background:transparent;
+  margin-top:50px;
+  margin-bottom:-20px;
+  width: 241px;
+  height: 32px;
+  border-bottom: 1px solid #F56D00;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+}
+span{
+  padding-left:10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  
+  color: #000000;
+}
+
 footer{
-  position: fixed;
+  display: flex;
+
+  
   bottom:0;
   left: 0;
   margin-top: 10px;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+ 
+
+}
+
+.exitBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+}
+.door{
+  margin-right:5px;
 }

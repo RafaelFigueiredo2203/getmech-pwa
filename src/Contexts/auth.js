@@ -9,7 +9,9 @@ export const AuthContext = createContext();
 
 function AuthProvider({ children }){
   const [user, setUser] = useState(null);
-  const [loadingAuth, setLoadingAuth] = useState(false);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+  const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false);
+  const [isAuthenticatedEmp, setIsAuthenticatedEmp] = useState(false);
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
   const history = useHistory();
@@ -63,6 +65,7 @@ function AuthProvider({ children }){
       toast.success('🚀 Entrou com sucesso!');
       setUser(data);
       storageUser(data);
+      setIsAuthenticatedUser(true);
       setLoadingAuth(false);
 
 
@@ -78,11 +81,54 @@ function AuthProvider({ children }){
   }
 
 
+  async function signInEmp(email, password){
+    setLoadingAuth(true);
+    
+    await firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(async (value)=> {
+      
+      let uid = value.user.uid;
+
+      const userProfile = await firebase.firestore().collection('userEmp')
+      .doc(uid).get();
+      
+      let data = {
+        uid: uid,
+        nome: userProfile.data().nome,
+        email: value.user.email,
+        urlPhoto: userProfile.data().urlPhoto,
+        phoneNumber: userProfile.data().phoneNumber,
+        city: userProfile.data().city,
+        state: userProfile.data().state,
+        cnpj: userProfile.data().cnpj
+
+      };
+      
+      toast.success('🚀 Entrou com sucesso!');
+      setUser(data);
+      storageUser(data);
+      setIsAuthenticatedEmp(true);
+      setLoadingAuth(false);
+     
+      
+
+
+    })
+    .catch((error)=>{
+      if(!error != null){
+      console.log(error);
+     
+      setLoadingAuth(false);
+      }
+    })
+
+  }
+
 
  
 
 
-  function storageUser(data, date, cpF){
+  function storageUser(data, date, cpF,cnpj){
     localStorage.setItem('user', JSON.stringify(data));
     localStorage.setItem('uid',(date).toString());
 
@@ -93,11 +139,15 @@ function AuthProvider({ children }){
   //Logout do usuario
   async function signOut(){
     await firebase.auth().signOut();
+    setIsAuthenticatedUser(false);
+    setIsAuthenticatedEmp(false);
     localStorage.removeItem('user');
     localStorage.removeItem('uid');
     localStorage.removeItem('Photo');
     localStorage.removeItem('nome');
+   
     setUser(null);
+    
     toast.success('🚀Saiu!');
   }
     function SignGoogle(){
@@ -161,16 +211,18 @@ function AuthProvider({ children }){
   return(
     <AuthContext.Provider 
     value={{ 
-      signed: !!user,  
+      signed: !!user, 
       user, 
       loading, 
       signOut,
       signIn,
+      signInEmp,
       loadingAuth,
       SignGoogle,
       storageUser,
       setUser,
-    
+    isAuthenticatedUser,
+    isAuthenticatedEmp,
    
       
     }}

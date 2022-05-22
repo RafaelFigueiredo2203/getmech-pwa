@@ -1,8 +1,8 @@
 import "./styles.css";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Modal } from "./Modal";
 import {Menu} from './Menu';
+import {List} from 'phosphor-react';
 import { ReactDimmer } from "react-dimmer";
 
 export default function MenuOfc() {
@@ -21,7 +21,7 @@ export default function MenuOfc() {
     <>
       <div className="app">
         <div className="header">
-          <GiHamburgerMenu className="menu-btn" onClick={handleMenu} />
+        <List size={32} weight="bold" className="menu-btn"  onClick={handleMenu} />
           <h1 className="menuh1">Menu</h1>
           <div className="nav"></div>
         </div>

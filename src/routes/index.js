@@ -1,7 +1,7 @@
 
-import { Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 import Route from './Route';
-
+import PrivateRoute from './PrivateRoute';
 import { Home } from '../pages/Home/Home';
 
 
@@ -17,10 +17,21 @@ import { LoginEmail } from '../pages/Cliente/LoginEmail/LoginEmail';
 import { NewPassword } from '../pages/Cliente/LoginEmail/NewPassword';
 import { Ordem } from '../pages/Cliente/Ordem/Ordem';
 import Success from '../pages/Cliente/Ordem/Success';
+import { LoginEmailEmp } from '../pages/Empresa/LoginEmail/LoginEmail';
+import { EmpresaForm } from '../pages/Empresa/CadastroEmp/EmpresaForm';
+import { Dashboardemp } from '../pages/Empresa/Dashborad/Dashboardemp';
+import { AuthContext } from '../Contexts/auth';
+import { Component, useContext } from 'react';
+
 
 
 
 export default function Routes(){
+
+  
+
+  
+
   return(
     <Switch>
     <Route exact path="/" component={Home}/>
@@ -32,10 +43,19 @@ export default function Routes(){
     <Route exact path="/new_password" component={NewPassword}/>
     <Route exact path="/question" component={Question}/>
     <Route exact path="/cliente-form" component={ClienteForm} />
-    <Route exact path="/dashboard" component={Dashboard} isPrivate/>
-    <Route exact path="/ordem" component={Ordem} isPrivate/>
-    <Route exact path="/ordemSuccess" component={Success} isPrivate/>
+    <Route exact path="/dashboard" component={Dashboard} isPrivateUser />
+    <Route exact path="/ordem" component={Ordem} isPrivateUser />
+    <Route exact path="/ordemSuccess" component={Success}  isPrivateUser />
 
+    
+
+   
+
+    
+
+    
   </Switch>
+
+  
   )
 }
