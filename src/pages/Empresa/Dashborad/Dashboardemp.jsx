@@ -1,31 +1,50 @@
-import { Door } from "phosphor-react";
-import { useContext, useEffect } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import Button from "rsuite/esm/Button";
-import { AuthContext } from "../../../Contexts/auth";
+import { useContext, useEffect, useLayoutEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
- 
-export function Dashboardemp(){
-
-  const { signOut, user } = useContext(AuthContext);
-
-  
+import { AuthContext } from '../../../Contexts/auth';
+import MenuOfcEmp from '../components/Menu/MenuOfc';
 
 
 
- 
+export  function Dashboardemp(){
+
+  const history = useHistory();
+ const {  loadOrdens, user, ordem } = useContext(AuthContext);
+
+  useEffect(()=>{
+    
+
+    function load(){
+     
+      if(typeof user.cnpj === 'undefined'){
+        history.push('/dashboard');
+      }
+
+    }
+    
+    load();
+    loadOrdens();
+  }, [history, user.cnpj]);
 
   return(
-      <div>
+    <div>
+    
+      
+
+    
+       <MenuOfcEmp/>
+       
+       {ordem.map((ordem)=>{
+        return(
+          <li key={ordem.id} >
+            <span>Titulo: {ordem.modelo} </span> <br/>
+            <span>Autor: {ordem.nome} </span> <br/> <br/>
+          </li>
+        )
+      })}
+    
      
-
-      <Button className="exitBtn" color="orange" appearance="primary" onClick={ () => signOut() }>
-      <Door className="door" size={20} color="#f5f5f5" weight="bold" />
-
-        Sair
-        
-        </Button>
-      </div>
-  );
+    </div>
+  )
 }

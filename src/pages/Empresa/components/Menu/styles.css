@@ -1,0 +1,229 @@
+
+
+.app .header {
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  margin-left: 0;
+  margin-top: 0px;
+  background: rgba(245, 109, 0, 0.83);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+h1.menuh1{
+  margin-top: -32px;
+  margin-left: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 103px;
+  height: 34px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #000000;
+
+}
+
+.header .menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-left:25px;
+  font-size: 1.75rem;
+  color: #000000;
+  cursor: pointer;
+}
+
+
+.app .body {
+  height: calc(100% - 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app .body button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vh;
+  min-width: 20rem;
+  min-height: 25rem;
+  background-color: rgb(228, 228, 228);
+  border-radius: 10px;
+  z-index: 200;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modal .modal-header {
+  height: 2.5rem;
+  border-radius: 10px 10px 0 0;
+  background-color: rgb(29, 29, 29);
+  position: relative;
+}
+
+.modal .modal-header h2 {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.modal .modal-body {
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.app-menu {
+  
+  padding-top: 0px;
+  color: black;
+  height: 100%;
+  width: 18rem;
+  background: #FFFFFF;
+  border: 1px solid #F56D00;
+  box-sizing: border-box;
+  border-radius: 8px;
+  z-index: 200;
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+
+  transform: translateX(-100%);
+  transition: 0.3s;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+}
+.MenuHeader{
+  margin-top: 0.2px;
+  position: fixed;
+    top:0;
+    left: 0;
+    
+width: 100%;
+height: 230px;
+align-items: center;
+justify-content: center;
+display: flex;
+flex-direction: column;
+background: #F56D00;
+border-radius: 8px ;
+}
+.body-menu{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-open {
+  padding-top: 0px;
+  transform: translateX(0%);
+  
+}
+.foto{
+  margin-top: 30px;
+  width: 121px;
+  height: 121px;
+  border-radius: 85.5px;
+}
+h2.Nome{
+  margin-top: 5px;
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+text-align: center;
+
+color: #000000;
+}
+div.optionsMenu{
+  width: 270px;
+  padding-left:10px;
+  margin-top:180px;
+  height:480px;
+  border-radius:10px;
+  border: 1px solid #F56D00;
+  background: rgba(245, 109, 0, 0.5);
+
+  
+  display: flex;
+  flex-direction:column;
+  
+}
+.buttonMenu{
+  background:transparent;
+  margin-top:50px;
+  margin-bottom:-20px;
+  width: 241px;
+  height: 32px;
+  border-bottom: 1px solid #F56D00;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+}
+span{
+  padding-left:10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  
+  color: #000000;
+}
+
+footer{
+  display: flex;
+
+  
+  bottom:0;
+  left: 0;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+ 
+
+}
+
+.exitBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+}
+.door{
+  margin-right:5px;
+}

@@ -14,7 +14,12 @@ export default function RouteWrapper({
 
 
 
-  
+  if(loading){
+    return(
+      <div></div>
+    )
+  }
+ 
  
  
 
@@ -27,9 +32,9 @@ export default function RouteWrapper({
    
     
     return <Redirect to="/dashboard" /> 
-   
-   
+    
   }
+ 
  
 
 

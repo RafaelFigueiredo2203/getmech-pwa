@@ -9,6 +9,7 @@ export const AuthContext = createContext();
 
 function AuthProvider({ children }){
   const [user, setUser] = useState(null);
+  const [ordem, setOrdem] = useState([]);
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false);
   const [isAuthenticatedEmp, setIsAuthenticatedEmp] = useState(false);
@@ -24,6 +25,7 @@ function AuthProvider({ children }){
 
     function loadStorage(){
       const storageUser = localStorage.getItem('user');
+      
 
       if(storageUser){
         setUser(JSON.parse(storageUser));
@@ -109,7 +111,7 @@ function AuthProvider({ children }){
       storageUser(data);
       setIsAuthenticatedEmp(true);
       setLoadingAuth(false);
-     
+     history.push('/dashboard-emp')
       
 
 
@@ -125,13 +127,41 @@ function AuthProvider({ children }){
   }
 
 
+  async function loadOrdens(){
+    await firebase.firestore().collection('services')
+    .onSnapshot((doc)=>{
+
+      let ordens = [];
+
+      doc.forEach((ordem)=>{
+      ordens.push({
+      id:ordem.id,
+      ano: ordem.data().ano,
+      city: ordem.data().city,
+      description:ordem.data().description,
+      email:ordem.data().email,
+      marca: ordem.data().marca,
+      modelo: ordem.data().modelo,
+      nome: ordem.data().nome,
+      phoneNumber: ordem.data().phoneNumber,
+      state: ordem.data().state,
+      tipo: ordem.data().tipo,
+      urlPhoto: ordem.data().urlPhoto,
+
+    })
+  });
+ setOrdem(ordens);
  
+    })
 
+    }
+  
 
-  function storageUser(data, date, cpF,cnpj){
+  function storageUser(data, date,ordem){
     localStorage.setItem('user', JSON.stringify(data));
-    localStorage.setItem('uid',(date).toString());
-
+    localStorage.setItem('ordens', JSON.stringify(ordem));
+    
+    
   }
 
 
@@ -142,6 +172,7 @@ function AuthProvider({ children }){
     setIsAuthenticatedUser(false);
     setIsAuthenticatedEmp(false);
     localStorage.removeItem('user');
+    localStorage.removeItem('ordens');
     localStorage.removeItem('uid');
     localStorage.removeItem('Photo');
     localStorage.removeItem('nome');
@@ -223,7 +254,8 @@ function AuthProvider({ children }){
       setUser,
     isAuthenticatedUser,
     isAuthenticatedEmp,
-   
+   loadOrdens,
+   ordem,
       
     }}
     >

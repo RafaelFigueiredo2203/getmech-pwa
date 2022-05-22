@@ -1,7 +1,7 @@
 
 import { Redirect, Switch } from 'react-router-dom';
 import Route from './Route';
-import PrivateRoute from './PrivateRoute';
+
 import { Home } from '../pages/Home/Home';
 
 
@@ -49,7 +49,8 @@ export default function Routes(){
 
     
 
-   
+    <Route exact path="/login_emailemp" component={LoginEmailEmp}/>
+    <Route exact  path="/dashboard-emp" component={Dashboardemp} isPrivateUser  />
 
     
 
