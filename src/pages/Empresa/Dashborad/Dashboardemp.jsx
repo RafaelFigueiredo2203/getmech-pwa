@@ -1,10 +1,11 @@
 import { useContext, useEffect, useLayoutEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
-
+import { Link, useHistory } from 'react-router-dom';
+import './styles.scss';
+import { Avatar, AvatarGroup } from 'rsuite';
 import { AuthContext } from '../../../Contexts/auth';
 import MenuOfcEmp from '../components/Menu/MenuOfc';
-
+import Button from 'rsuite/Button';
+import notOrdem from '../../../assets/imgs/undraw_empty_re_opql 1.svg'
 
 
 export  function Dashboardemp(){
@@ -25,24 +26,58 @@ export  function Dashboardemp(){
     
     load();
     loadOrdens();
+    console.log(ordem);
   }, [history, user.cnpj]);
 
   return(
-    <div>
+    <div className="body">
     
       
 
     
        <MenuOfcEmp/>
        
+     
+       {ordem.length === 0 ? 
+
+       <div className="empt-ordem">
+        <img className="img" src={notOrdem} alt="" />
+
+        <span>
+        Ops! Não há clientes necessitando de serviços na sua área por enquanto.
+        </span>
+        </div>
+
+        :
+
+        <div className="notempt-ordem">
+
+          <strong className="title">Clientes na sua cidade</strong>
+
+
        {ordem.map((ordem)=>{
         return(
-          <li key={ordem.id} >
-            <span>Titulo: {ordem.modelo} </span> <br/>
-            <span>Autor: {ordem.nome} </span> <br/> <br/>
-          </li>
+         
+          <div className="ordem-div" key={ordem.id} >
+            <div className="header">
+            <Avatar circle size="md"  src={ordem.urlPhoto} alt="@superman66" />
+             <span>{ordem.nome}</span>
+            </div>
+
+
+            <span className="ordemData">Veículo: {ordem.tipo} </span> 
+            <span className="ordemData">Marca: {ordem.marca} </span> 
+            <span className="ordemData">Modelo: {ordem.modelo}</span>
+
+            <Button onClick={()=> {history.push('/ordemDetails')}} className="btn" appearance="primary" color="orange">Detalhes</Button>
+
+          </div>
         )
       })}
+
+        </div>
+    }
+     
     
      
     </div>

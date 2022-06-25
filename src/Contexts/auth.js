@@ -124,11 +124,12 @@ function AuthProvider({ children }){
       }
     })
 
-  }
+  } 
 
 
   async function loadOrdens(){
     await firebase.firestore().collection('services')
+    .where("state", "==", user.state)
     .onSnapshot((doc)=>{
 
       let ordens = [];

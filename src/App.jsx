@@ -6,7 +6,7 @@ import Routes from './routes';
 
 import AuthProvider from './Contexts/auth';
 import { ToastContainer } from 'react-toastify';
-import "rsuite/dist/rsuite.min.css";
+import 'rsuite/styles/index.less';
 
 
 

@@ -22,6 +22,7 @@ import { EmpresaForm } from '../pages/Empresa/CadastroEmp/EmpresaForm';
 import { Dashboardemp } from '../pages/Empresa/Dashborad/Dashboardemp';
 import { AuthContext } from '../Contexts/auth';
 import { Component, useContext } from 'react';
+import { OrdemDetails } from '../pages/Empresa/OrdemDetails/OrdemDetails';
 
 
 
@@ -48,9 +49,10 @@ export default function Routes(){
     <Route exact path="/ordemSuccess" component={Success}  isPrivateUser />
 
     
-
+    <Route exact path="/emp-form" component={EmpresaForm} />
     <Route exact path="/login_emailemp" component={LoginEmailEmp}/>
     <Route exact  path="/dashboard-emp" component={Dashboardemp} isPrivateUser  />
+    <Route exact  path="/ordemdetails" component={OrdemDetails} isPrivateUser  />
 
     
 

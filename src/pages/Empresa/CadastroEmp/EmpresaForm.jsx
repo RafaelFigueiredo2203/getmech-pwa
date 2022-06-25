@@ -84,8 +84,8 @@ export function EmpresaForm(){
        .then((data) => {
          toast.success('🚀 Cadastrado com sucesso!');
          
-          <Redirect to="/dashboardemp" />
-          history.push('/dashboardemp');
+          <Redirect to="/login_emailemp" />
+          history.push('/login_emailemp');
           
           
         
