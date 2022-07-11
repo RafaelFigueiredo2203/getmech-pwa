@@ -1,0 +1,129 @@
+.header{
+  top:0;
+  width: 100%;
+  height: 43px;
+  background: rgba(245, 109, 0, 0.83);
+
+      .btnMenu{
+        background: rgba(241, 240, 239, 0);
+        margin-left: 10px;
+        width: 120px;
+        height: 43px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        
+        color: #000000;
+      }
+
+
+    .MenuHeader{
+   
+    position: fixed;
+      top:0;
+      left: 0;
+      
+  width: 100%;
+  height: 230px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: #F56D00;
+  border-top-left-radius: 0px ;
+  border-top-right-radius: 0px ;
+  border-bottom-left-radius: 8px ;
+  border-bottom-right-radius: 8px ;
+
+   .foto{
+    margin-top: 30px;
+    width: 121px;
+    height: 121px;
+    border-radius: 85.5px;
+  }
+   h2.Nome{
+    margin-top: 5px;
+    font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  
+  color: #000000;
+  }
+
+  }
+  .options-Menu{
+    
+    width: 230px;
+    padding-left:10px;
+    margin-left: 11px;
+    margin-top:190px ;
+    height:320px;
+    border-radius:10px;
+    border: 1px solid #F56D00;
+    background: rgba(245, 109, 0, 0.5);
+  
+    
+    display: flex;
+    flex-direction:column;
+
+
+    .buttonMenu{
+      background:transparent;
+      margin-top:50px;
+      margin-bottom:-20px;
+      width: 210px;
+      height: 32px;
+      border-bottom: 1px solid #F56D00;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: left;
+      text-align: left;
+
+      span{
+        padding-left:10px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 22px;
+        
+        color: #000000;
+      }
+  }
+  .body-menu{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+    
+
+    footer{
+      display: flex;
+    
+      
+      bottom:0;
+      left: 0;
+      margin-top: 10px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    
+     
+    
+    }
+  }
+}

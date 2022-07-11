@@ -7,6 +7,7 @@ import Routes from './routes';
 import AuthProvider from './Contexts/auth';
 import { ToastContainer } from 'react-toastify';
 import 'rsuite/styles/index.less';
+import 'react-modern-drawer/dist/index.css'
 
 
 
@@ -14,7 +15,7 @@ import 'rsuite/styles/index.less';
 function App() {
   return (
     <>
-
+ 
     <AuthProvider>
         <BrowserRouter>
         <ToastContainer autoClose={3000}/>
@@ -22,6 +23,7 @@ function App() {
            
       </BrowserRouter>
   </AuthProvider>
+  
       
     </>
   );

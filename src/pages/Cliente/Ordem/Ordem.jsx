@@ -1,4 +1,4 @@
-import MenuOfc from "../../../components/Menu/MenuOfc";
+
 import './style.scss';
 import enviar from '../../../assets/imgs/undraw_Letter_re_8m03 1.png';
 import Button from 'rsuite/Button';
@@ -10,7 +10,7 @@ import firebase from '../../../services/firebase/firebase';
 import { AuthContext } from "../../../Contexts/auth";
 
 export function Ordem(){
-
+  const [orderDisponibility, setOrderDisponibility] = useState(true);
   const [tipo, setTipo] = useState('');
   const [marca, setMarca] = useState('');
   const [modelo, setModelo] = useState('');
@@ -38,7 +38,8 @@ export function Ordem(){
         description:description,
         state:state,
         city:city,
-        phoneNumber:phoneNumber
+        phoneNumber:phoneNumber.trim(),
+        orderDisponibility:orderDisponibility
         
       })
      .then(() => {
@@ -141,7 +142,7 @@ export function Ordem(){
              </select>
 
             <label >Seu número para contato:</label>
-            <input  required type="phone" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="14 996112228" />
+            <input  required type="phone" value={phoneNumber.trim()} onChange={(e) => setPhoneNumber(e.target.value.trim())} placeholder="Ex:14996112228" />
 
 
             <img src={enviar} alt="" />

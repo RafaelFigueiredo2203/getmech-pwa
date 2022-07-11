@@ -5,7 +5,8 @@ import { Buttoon } from '../../../components/ButtonsDAsh/Button';
 import MyComponent from '../../../components/Maps/Maps';
 
 
-import MenuOfc from '../../../components/Menu/MenuOfc';
+
+import { Menu } from '../../../components/MenuRsuit/Menu';
 import { AuthContext } from '../../../Contexts/auth';
 
 
@@ -34,9 +35,9 @@ export  function Dashboard(){
     <div>
     
       
-
+    <Menu/>
        <MyComponent/>
-       <MenuOfc/>
+       
 
       
      <Buttoon />

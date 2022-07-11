@@ -3,20 +3,21 @@ import { useState, createContext, useEffect } from 'react';
 import  firebase  from '../services/firebase/firebase';
 import { toast } from 'react-toastify';
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 function AuthProvider({ children }){
   const [user, setUser] = useState(null);
   const [ordem, setOrdem] = useState([]);
+ 
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false);
   const [isAuthenticatedEmp, setIsAuthenticatedEmp] = useState(false);
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
   const history = useHistory();
-
+  
  
   
 
@@ -129,7 +130,8 @@ function AuthProvider({ children }){
 
   async function loadOrdens(){
     await firebase.firestore().collection('services')
-    .where("state", "==", user.state)
+    .where("state", "==", user.state).where("city", "==", user.city)
+    .where("orderDisponibility", "==", true)
     .onSnapshot((doc)=>{
 
       let ordens = [];
@@ -156,6 +158,8 @@ function AuthProvider({ children }){
     })
 
     }
+
+   
   
 
   function storageUser(data, date,ordem){
@@ -174,6 +178,7 @@ function AuthProvider({ children }){
     setIsAuthenticatedEmp(false);
     localStorage.removeItem('user');
     localStorage.removeItem('ordens');
+    localStorage.removeItem('ordemId');
     localStorage.removeItem('uid');
     localStorage.removeItem('Photo');
     localStorage.removeItem('nome');
@@ -256,7 +261,7 @@ function AuthProvider({ children }){
     isAuthenticatedUser,
     isAuthenticatedEmp,
    loadOrdens,
-   ordem,
+   ordem
       
     }}
     >

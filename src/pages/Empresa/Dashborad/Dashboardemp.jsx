@@ -1,17 +1,18 @@
 import { useContext, useEffect, useLayoutEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import './styles.scss';
 import { Avatar, AvatarGroup } from 'rsuite';
 import { AuthContext } from '../../../Contexts/auth';
 import MenuOfcEmp from '../components/Menu/MenuOfc';
 import Button from 'rsuite/Button';
 import notOrdem from '../../../assets/imgs/undraw_empty_re_opql 1.svg'
+import { Menu } from '../../../components/MenuRsuit/Menu';
 
 
 export  function Dashboardemp(){
-
+  const id = useParams();
   const history = useHistory();
- const {  loadOrdens, user, ordem } = useContext(AuthContext);
+  const {  loadOrdens, user, ordem } = useContext(AuthContext);
 
   useEffect(()=>{
     
@@ -32,13 +33,14 @@ export  function Dashboardemp(){
   return(
     <div className="body">
     
-      
+      <Menu/>
 
     
-       <MenuOfcEmp/>
+       
+         
        
      
-       {ordem.length === 0 ? 
+       {ordem?.length === 0 ? 
 
        <div className="empt-ordem">
         <img className="img" src={notOrdem} alt="" />
@@ -69,7 +71,7 @@ export  function Dashboardemp(){
             <span className="ordemData">Marca: {ordem.marca} </span> 
             <span className="ordemData">Modelo: {ordem.modelo}</span>
 
-            <Button onClick={()=> {history.push('/ordemDetails')}} className="btn" appearance="primary" color="orange">Detalhes</Button>
+            <Button onClick={()=> {history.push(`/ordemdetails/${ordem.id}`)}} className="btn" appearance="primary" color="orange">Detalhes</Button>
 
           </div>
         )
