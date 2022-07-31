@@ -2,6 +2,7 @@
 import { AlignLeft, CaretLeft, ChatTeardropDots, ClockCounterClockwise, Door, List, ProjectorScreenChart, ToggleLeft, User } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import Drawer from 'react-modern-drawer'
+import { useHistory } from 'react-router-dom';
 import {  Button, ButtonToolbar, IconButton } from 'rsuite';
 import PlaceholderParagraph from 'rsuite/esm/Placeholder/PlaceholderParagraph';
 import { AuthContext } from '../../Contexts/auth';
@@ -18,7 +19,7 @@ const styles = {
 export function Menu(){
 
   const { user } = useContext(AuthContext);
-  
+  const history = useHistory();
   const { signOut } = useContext(AuthContext);
 
   const [isOpen, setIsOpen] = useState(false)
@@ -30,7 +31,7 @@ export function Menu(){
   return(
     <div className="header">
      
-     <Button className="btnMenu" onClick={toggleDrawer}><List size={30} color="#050505" weight="bold" />  Menu</Button>
+     <Button className="btnMenu" onClick={toggleDrawer}> <List size={30} color="#050505" weight="bold" />  Menu</Button>
             <Drawer
                 open={isOpen}
                 onClose={toggleDrawer}
@@ -47,21 +48,31 @@ export function Menu(){
 
         <div className="options-Menu">
 
-        <Button appearance="primary" color="orange" className="buttonMenu">
+        {!user?.cnpj ?
+          <Button onClick={() => {history.push('/perfilClient')}} appearance="primary" color="orange" className="buttonMenu">
+          <User className="UserIcon" size={20} color="#000000" weight="duotone" />
+          <span>Perfil </span>
+          </Button> 
+        :
+        <Button onClick={() => {history.push('/perfilEmp')}} appearance="primary" color="orange" className="buttonMenu">
         <User className="UserIcon" size={20} color="#000000" weight="duotone" />
         <span>Perfil </span>
         </Button>
+        }
+        
 
         <Button appearance="primary" color="orange" className="buttonMenu">
         <ClockCounterClockwise size={20} color="#050505" weight="duotone" />
         <span>Histórico</span>
         </Button>
         
-        <Button appearance="primary" color="orange" className="buttonMenu">
+        
+        <Button onClick={() => {history.push('/feedback')}} appearance="primary" color="orange" className="buttonMenu">
         <ChatTeardropDots size={20} color="#050505" weight="duotone" />
         <span>Feedback</span>
         </Button>
         
+
         <Button appearance="primary" color="orange" className="buttonMenu">
         <ProjectorScreenChart size={20} color="#050505" weight="duotone" />
         <span>Sobre</span>

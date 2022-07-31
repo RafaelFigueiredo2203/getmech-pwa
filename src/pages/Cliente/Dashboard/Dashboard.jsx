@@ -14,7 +14,11 @@ import { AuthContext } from '../../../Contexts/auth';
 export  function Dashboard(){
 
   const history = useHistory();
- const {   user } = useContext(AuthContext);
+ const {  loadPerfilClient, user } = useContext(AuthContext);
+
+ useEffect(()=>{
+  loadPerfilClient();
+},[]);
 
   useEffect(()=>{
     
@@ -28,6 +32,8 @@ export  function Dashboard(){
     }
     
     load();
+
+    
 
   }, [history, user.cnpj]);
 

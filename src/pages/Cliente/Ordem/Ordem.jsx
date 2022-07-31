@@ -5,9 +5,10 @@ import Button from 'rsuite/Button';
 import "rsuite/dist/rsuite.min.css";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import firebase from '../../../services/firebase/firebase';
 import { AuthContext } from "../../../Contexts/auth";
+import { CaretLeft } from 'phosphor-react';
 
 export function Ordem(){
   const [orderDisponibility, setOrderDisponibility] = useState(true);
@@ -58,7 +59,7 @@ export function Ordem(){
     // The email of the user's account used.
    console.log(errorMessage);
 
-      toast.error('⭕ E-mail existente ou erro no sistema!');
+      toast.error('⭕ erro');
         history.go(0);
         // ..
       });
@@ -75,6 +76,7 @@ export function Ordem(){
   return(
     <div className="ordem">
       <header className="header">
+      <Link to="/dashboard" ><CaretLeft className="carret" color="#000" size={28}/></Link>
         <h1>Ordem de Serviço</h1>
       </header>
 

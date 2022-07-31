@@ -2,7 +2,7 @@
 import { useState, createContext, useEffect } from 'react';
 import  firebase  from '../services/firebase/firebase';
 import { toast } from 'react-toastify';
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, deleteUser } from "firebase/auth";
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 
 export const AuthContext = createContext();
@@ -38,9 +38,58 @@ function AuthProvider({ children }){
     
     loadStorage();
 
-  }, [])
+  }, []);
 
 
+  async function loadPerfilEmp(){
+    let uid = user?.uid;
+
+    const userProfile = await firebase.firestore().collection('userEmp')
+    .doc(uid).get();
+    
+    let data = {
+      uid: uid,
+      nome: userProfile.data().nome,
+      email: user?.email,
+      urlPhoto: userProfile.data().urlPhoto,
+      phoneNumber: userProfile.data().phoneNumber,
+      city: userProfile.data().city,
+      state: userProfile.data().state,
+      cnpj: userProfile.data().cnpj,
+      end: userProfile.data().end
+
+    };
+    
+   
+    setUser(data);
+    storageUser(data);
+
+  }
+
+  async function loadPerfilClient(){
+    let uid = user?.uid;
+
+    const userProfile = await firebase.firestore().collection('userClient')
+    .doc(uid).get();
+    
+    let data = {
+      uid: uid,
+      nome: userProfile.data().nome,
+      email: user?.email,
+      urlPhoto: userProfile.data().urlPhoto,
+      phoneNumber: userProfile.data().phoneNumber,
+      city: userProfile.data().city,
+      state: userProfile.data().state,
+      cpf: userProfile.data().cpf,
+      end: userProfile.data().end,
+      googleAccount:userProfile.data().googleAccount
+    };
+    
+   
+    setUser(data);
+    storageUser(data);
+
+  }
 
   //Fazendo login do usuario
   async function signIn(email, password){
@@ -61,7 +110,9 @@ function AuthProvider({ children }){
         urlPhoto: userProfile.data().urlPhoto,
         phoneNumber: userProfile.data().phoneNumber,
         city: userProfile.data().city,
-        state: userProfile.data().state
+        state: userProfile.data().state,
+        googleAccount:userProfile.data().googleAccount,
+        end: userProfile.data().end
 
       };
       
@@ -103,7 +154,8 @@ function AuthProvider({ children }){
         phoneNumber: userProfile.data().phoneNumber,
         city: userProfile.data().city,
         state: userProfile.data().state,
-        cnpj: userProfile.data().cnpj
+        cnpj: userProfile.data().cnpj,
+        end: userProfile.data().end
 
       };
       
@@ -202,10 +254,11 @@ function AuthProvider({ children }){
     .set({
           nome:result.user.displayName,
           email:result.user.email,
-         
+          googleAccount:true,
           uid:result.user.uid,
           urlPhoto:result.user.photoURL
-          
+        
+        
 
     })
 
@@ -213,6 +266,7 @@ function AuthProvider({ children }){
       uid:result.user.uid,
       nome: result.user.displayName,
       email: result.user.email,
+      googleAccount:true,
       urlPhoto: result.user.photoURL
      
 
@@ -245,6 +299,8 @@ function AuthProvider({ children }){
 
 
 
+
+
   return(
     <AuthContext.Provider 
     value={{ 
@@ -261,7 +317,10 @@ function AuthProvider({ children }){
     isAuthenticatedUser,
     isAuthenticatedEmp,
    loadOrdens,
-   ordem
+   ordem,
+   loadPerfilEmp,
+   loadPerfilClient,
+   
       
     }}
     >

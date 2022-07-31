@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #FBF9F9;
+  @apply bg-[#09090A] text-zinc-100;
+}
+
+body, p, li, input{
+  font: 400 16px 'Poppins', sans-serif;
+}

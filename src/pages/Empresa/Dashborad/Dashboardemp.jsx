@@ -9,10 +9,17 @@ import notOrdem from '../../../assets/imgs/undraw_empty_re_opql 1.svg'
 import { Menu } from '../../../components/MenuRsuit/Menu';
 
 
+
 export  function Dashboardemp(){
+  
+
+  useEffect(()=>{
+    loadPerfilEmp();
+  },[]);
+
   const id = useParams();
   const history = useHistory();
-  const {  loadOrdens, user, ordem } = useContext(AuthContext);
+  const {  loadPerfilEmp, loadOrdens, user, ordem } = useContext(AuthContext);
 
   useEffect(()=>{
     
@@ -32,6 +39,7 @@ export  function Dashboardemp(){
 
   return(
     <div className="body">
+        
     
       <Menu/>
 
@@ -54,7 +62,7 @@ export  function Dashboardemp(){
 
         <div className="notempt-ordem">
 
-          <strong className="title">Clientes na sua cidade</strong>
+          <strong className="title ">Clientes na sua cidade</strong>
 
 
        {ordem.map((ordem)=>{
@@ -81,7 +89,7 @@ export  function Dashboardemp(){
     }
      
     
-     
+   
     </div>
   )
 }

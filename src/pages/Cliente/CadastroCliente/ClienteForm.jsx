@@ -79,6 +79,7 @@ export function ClienteForm(){
           gen:data.gen,
           state:data.state,
           uid:user.uid,
+          googleAccount:false,
           urlPhoto:data.urlPhoto
           
         })

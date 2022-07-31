@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import './global.scss';
+import './global.css';
 import {BrowserRouter}  from 'react-router-dom';
 import Routes from './routes';
 
-import AuthProvider from './Contexts/auth';
+import AuthProvider, { AuthContext } from './Contexts/auth';
 import { ToastContainer } from 'react-toastify';
 import 'rsuite/styles/index.less';
 import 'react-modern-drawer/dist/index.css'
@@ -13,6 +13,7 @@ import 'react-modern-drawer/dist/index.css'
 
 
 function App() {
+  
   return (
     <>
  
@@ -20,6 +21,7 @@ function App() {
         <BrowserRouter>
         <ToastContainer autoClose={3000}/>
            <Routes/>
+           
            
       </BrowserRouter>
   </AuthProvider>
