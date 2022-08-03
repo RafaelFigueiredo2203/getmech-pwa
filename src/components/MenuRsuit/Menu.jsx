@@ -60,11 +60,18 @@ export function Menu(){
         </Button>
         }
         
-
+        {!user?.cnpj ?
+        <Button onClick={() => {history.push('/historycli')}} appearance="primary" color="orange" className="buttonMenu">
+        <ClockCounterClockwise size={20} color="#050505" weight="duotone" />
+        <span>Histórico</span>
+        </Button>
+        :
         <Button appearance="primary" color="orange" className="buttonMenu">
         <ClockCounterClockwise size={20} color="#050505" weight="duotone" />
         <span>Histórico</span>
         </Button>
+
+        }
         
         
         <Button onClick={() => {history.push('/feedback')}} appearance="primary" color="orange" className="buttonMenu">

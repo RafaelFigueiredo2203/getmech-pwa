@@ -62,6 +62,7 @@ export function PerfilClient(){
   
   firebase.firestore().collection('userClient').doc(user?.uid)
   .delete();
+  
   signOut();
   toast.success('🚀 Excluido com sucesso!');
    

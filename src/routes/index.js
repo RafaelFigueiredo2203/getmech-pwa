@@ -31,6 +31,9 @@ import { Feedback } from '../components/Feedback/Feedback';
 import { EditarPerfilClient } from '../pages/Cliente/Perfil/EditarPerfil/EditarPerfil';
 import { PerfilClient } from '../pages/Cliente/Perfil/Perfil';
 import { PerfilClientGoogle } from '../pages/Cliente/Perfil/PerfilGoogle';
+import { HistoricoCli } from '../pages/Cliente/Historico/Historico';
+import { HistoricoOption } from '../pages/Cliente/Historico/HistoricoOption/HistoricoOption';
+import { EditOrder } from '../pages/Cliente/Historico/EditOrder/EditOrder';
 
 
 
@@ -59,7 +62,11 @@ export default function Routes(){
     <Route exact  path="/perfilClient" component={PerfilClient} isPrivateUser  />
     <Route exact  path="/EditPerfilClient" component={EditarPerfilClient} isPrivateUser  />
      <Route exact  path="/perfilClientGoogle" component={PerfilClientGoogle} isPrivateUser  />
-    
+     <Route exact  path="/historycli" component={HistoricoCli} isPrivateUser  />
+     <Route exact  path="/historydetails/:id" component={HistoricoOption} isPrivateUser  />
+     <Route exact  path="/editorder/:id" component={EditOrder} isPrivateUser  />
+
+
     
     <Route exact path="/emp-form" component={EmpresaForm} />
     <Route exact path="/login_emailemp" component={LoginEmailEmp}/>
