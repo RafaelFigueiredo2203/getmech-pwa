@@ -18,7 +18,7 @@ GetMech - PWA
   
   </h1>
  **Projeto em Desenvolvimento**
- Acesse :  -https://getmechpwa-nl2dwyhtl-rafaelfigueiredo2203.vercel.app/
+ Acesse :  -https://getmechpwa-8jrpb8cmj-rafaelfigueiredo2203.vercel.app/
 
 
 
