@@ -171,7 +171,8 @@ function AuthProvider({ children }){
     })
     .catch((error)=>{
       if(!error != null){
-      console.log(error);
+        
+      console.log(error.message);
      
       setLoadingAuth(false);
       }
@@ -251,7 +252,37 @@ function AuthProvider({ children }){
 
     }
 
+    async function loadOrdensHistoryEmp(){
+      await firebase.firestore().collection('services')
+      .where("orderRegisterId", "==", user.uid)
+      .where("orderDisponibility", "==", false)
+      .onSnapshot((doc)=>{
+  
+        let ordens = [];
+  
+        doc.forEach((ordem)=>{
+        ordens.push({
+        id:ordem.id,
+        ano: ordem.data().ano,
+        city: ordem.data().city,
+        description:ordem.data().description,
+        email:ordem.data().email,
+        marca: ordem.data().marca,
+        modelo: ordem.data().modelo,
+        nome: ordem.data().nome,
+        phoneNumber: ordem.data().phoneNumber,
+        state: ordem.data().state,
+        tipo: ordem.data().tipo,
+        urlPhoto: ordem.data().urlPhoto,
+  
+      })
+    });
+   setOrdem(ordens);
    
+      })
+  
+      }
+  
   
 
   function storageUser(data, date,ordem){
@@ -360,7 +391,8 @@ function AuthProvider({ children }){
    ordem,
    loadPerfilEmp,
    loadPerfilClient,
-   loadOrdensHistoryClient
+   loadOrdensHistoryClient,
+   loadOrdensHistoryEmp
    
       
     }}

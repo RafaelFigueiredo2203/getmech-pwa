@@ -66,7 +66,7 @@ export function Menu(){
         <span>Histórico</span>
         </Button>
         :
-        <Button appearance="primary" color="orange" className="buttonMenu">
+        <Button onClick={() => {history.push('/historyemp')}} appearance="primary" color="orange" className="buttonMenu">
         <ClockCounterClockwise size={20} color="#050505" weight="duotone" />
         <span>Histórico</span>
         </Button>

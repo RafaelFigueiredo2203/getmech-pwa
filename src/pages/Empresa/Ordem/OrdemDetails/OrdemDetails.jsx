@@ -68,7 +68,7 @@ export function OrdemDetails(){
    }
 
   return(
-      <div className="ordemBody">
+      <div className="OrdemDetailsBody">
         <header className="ordemHeader">
         <Link to="/dashboard-emp" ><CaretLeft className="carret" size={22} color="#FAFAFA" weight="bold" /></Link>
           <span className="spanHader">Detalhes</span>

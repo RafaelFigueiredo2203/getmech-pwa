@@ -1,7 +1,7 @@
-.OrdemDetailsBody{
-  height: 100vh;
+.OrdemDetails{
+  height: 120vh;
   width: 100%;
-  background-color: rgba(245, 109, 0, 0.23);
+  background-color: #343434;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@
       line-height: 33px;
       text-align: center;
       justify-content: center;
-      color: #FFFFFF;
+      color: #000;
       
     }
   }
@@ -95,23 +95,84 @@
       border: 1px solid #CCCCCC;
     }
 
-    .btn{
-      width: 152px;
-      height: 42px;
-      margin-top:25px;
-      margin-left:85px;
-      margin-bottom: 20px;
+    .OrdemDeatilsPhoto{
+      width: 105px;
+      height: 82px;
+      margin-left: 100px;
+      margin-top: 25px;
+    }
+
+    .spanStrong{
+      width: 283px;
+      height: 28px;
+      margin-left: 22px;
+      margin-top:22px;
 
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 400;
-      font-size: 15px;
-      line-height: 24px;
+      font-size: 20px;
+      line-height: 30px;
       text-align: center;
 
-      color: #FFFFFF;
+      color: #030303;
+    }
+    .rowDiv{
+      margin-left: 15px;
+      margin-bottom: 30px;
+      width: 280px;
+      height: 90px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
 
+      .columnDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        img{
+          width: 59px;
+          height: 59px;
+        }
+        span{
+          margin-right:9px ;
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          /* identical to box height */
+
+          text-align: center;
+
+          color: #030303;
+        }
+      }
     }
     
+  }
+
+  .btn{
+    width: 152px;
+    height: 42px;
+    margin-top:26px;
+  
+    margin-bottom: 20px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #FFFFFF;
+
   }
 }

@@ -10,7 +10,7 @@ import Email from '../../../../assets/imgs/email.svg';
 import './styles.scss';
 import { AuthContext } from "../../../../Contexts/auth";
 
-export function OrdemSucccess(){
+export function HistoricoOptionEmp(){
   const { id } = useParams();
   const history = useHistory();
   const [ordemId, setOrdemId] = useState({});
@@ -53,9 +53,9 @@ export function OrdemSucccess(){
    
 
   return(
-      <div className="ordemBodyy">
+      <div className="OrdemDetails">
         <header className="ordemHeader">
-        <Link to="/dashboard-emp" ><CaretLeft className="carret" size={22} color="#FAFAFA" weight="bold" /></Link>
+        <Link to="/historyemp" ><CaretLeft className="carret" size={22} color="#000" weight="bold" /></Link>
           <span className="spanHader">Detalhes</span>
         </header>
 
@@ -103,7 +103,7 @@ export function OrdemSucccess(){
            </div>
 
         </section>  
-        <Button   onClick={()=> {history.push('/dashboard-emp')}} className="btn" appearance="primary" color="orange">Voltar</Button>
+        <Button   onClick={()=> {history.push('/historyemp')}} className="btn" appearance="primary" color="orange">Voltar</Button>
       </div>
   )
 }
