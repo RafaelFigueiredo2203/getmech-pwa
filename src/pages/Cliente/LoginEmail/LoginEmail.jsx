@@ -79,7 +79,7 @@ export function LoginEmail(){
         }
       />
 
-        <Button type="submit"  className="enter">{loadingAuth ? 'Carregando...' : 'Entrar'}</Button>
+        <Button type="submit"  className="enter">{loadingAuth ? 'Entrar' : 'Carregando...'}</Button>
       </form>
 
       <a href="/recoverpassword">Recuperar senha</a>

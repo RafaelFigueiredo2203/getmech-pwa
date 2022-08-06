@@ -125,11 +125,11 @@ function AuthProvider({ children }){
 
     })
     .catch((error)=>{
-      if(!error != null){
-      console.log(error);
      
-      setLoadingAuth(false);
-      }
+      toast.error('❌ Senha ou e-mail incorretos!');
+      console.log(error.message);
+     
+      
     })
 
   }
@@ -164,19 +164,19 @@ function AuthProvider({ children }){
       storageUser(data);
       setIsAuthenticatedEmp(true);
       setLoadingAuth(false);
-     history.push('/dashboard-emp')
+    
       
 
 
     })
     .catch((error)=>{
-      if(!error != null){
-        
+ 
+      toast.error('❌ Senha ou e-mail incorretos!');
       console.log(error.message);
      
-      setLoadingAuth(false);
-      }
-    })
+      
+      
+    });
 
   } 
 

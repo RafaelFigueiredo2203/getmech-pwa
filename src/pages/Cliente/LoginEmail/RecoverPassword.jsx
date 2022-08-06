@@ -45,6 +45,7 @@ export function RecoverPassword(){
            </button> 
           
         </form>
+        <button className="Enviar" onClick={() => {history.push('/question')}}>Voltar</button>
     </div>
   );
 }

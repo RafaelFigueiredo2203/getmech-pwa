@@ -62,14 +62,14 @@ export function Feedback(){
         <span>Feedback</span>
       </header>
       
-
+    <div className="divFeedback">
       <h1>Nos envie um problema, ideia ou <br/> pergunta sobre o getMech.</h1>
       
       <input   onChange={(e) => setMensagem(e.target.value)} name="message" placeholder="Ex: O app esta com erro no login."/>
       
       <Button onClick={handleSubmit} type="submit" size="lg" appearance="primary" color="orange">Enviar</Button>
       
-
+      </div>
       
     </div>
   );
