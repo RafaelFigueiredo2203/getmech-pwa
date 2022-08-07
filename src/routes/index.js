@@ -35,6 +35,7 @@ import { HistoricoCli } from '../pages/Cliente/Historico/Historico';
 import { HistoricoOption } from '../pages/Cliente/Historico/HistoricoOption/HistoricoOption';
 import { HistoricoEmp } from '../pages/Empresa/HistoricoEmp/Historico';
 import { HistoricoOptionEmp } from '../pages/Empresa/HistoricoEmp/HistoricoOption/HistoricoOption';
+import { Sobre } from '../components/Sobre/Sobre';
 
 
 
@@ -68,7 +69,7 @@ export default function Routes(){
      <Route exact  path="/historydetails/:id" component={HistoricoOption} isPrivateUser  />
     
 
-
+     <Route exact  path="/sobre" component={Sobre} isPrivateUser  />
     
     <Route exact path="/emp-form" component={EmpresaForm} />
     <Route exact path="/login_emailemp" component={LoginEmailEmp}/>

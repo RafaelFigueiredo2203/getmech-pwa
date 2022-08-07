@@ -59,7 +59,7 @@ export function Feedback(){
     <div className="divFeedback">
       <header className="headerFeedback">
       <Link to="/dashboard-emp" ><CaretLeft className="carret" color="#000" size={28}/></Link>
-        <span>Feedback</span>
+        <span className="spanHaderFeed">Feedback</span>
       </header>
       
     <div className="divFeedback">

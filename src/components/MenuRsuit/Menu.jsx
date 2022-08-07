@@ -80,7 +80,7 @@ export function Menu(){
         </Button>
         
 
-        <Button appearance="primary" color="orange" className="buttonMenu">
+        <Button  onClick={() => {history.push('/sobre')}} appearance="primary" color="orange" className="buttonMenu">
         <ProjectorScreenChart size={20} color="#050505" weight="duotone" />
         <span>Sobre</span>
         </Button>
