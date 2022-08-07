@@ -1,6 +1,6 @@
 .bodySobre{
   width: 100%;
-  height: 190vh;
+  height: 200vh;
 
   background: #343434;
   mix-blend-mode: normal;
@@ -8,6 +8,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-height: 699px)
+{
+  height: 230vh;
+}
+
+@media (max-height: 609px)
+{
+  height: 250vh;
+}
+@media (max-height: 560px)
+{
+  height: 270vh;
+}
 
 .headerSobre{
   width: 100%;
