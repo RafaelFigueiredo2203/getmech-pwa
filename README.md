@@ -9,16 +9,18 @@ GetMech - PWA
 <h1 align="center" >
 
 
-  <img  src="https://user-images.githubusercontent.com/60237326/164804926-bd9f9015-34cd-45b5-abde-6250366baab3.png"/>
-   <img src="https://user-images.githubusercontent.com/60237326/164806555-5f5cba82-8a6f-48ee-9e0e-a8457ce6a355.png"/>
-  <img src="https://user-images.githubusercontent.com/60237326/164808343-4d2a5482-1b15-482b-a2ac-036e892b3945.png"/>
+  <img  src="https://user-images.githubusercontent.com/60237326/183305480-7191adbb-0a7b-4711-b2b2-5541c8a3a0d5.png"/>
+   <img src="https://user-images.githubusercontent.com/60237326/183305440-247b8627-6459-44ad-916d-5b6c20e80417.png"/>
+  <img src="https://user-images.githubusercontent.com/60237326/183305410-1436b914-b9dd-4ea5-8ea5-aaf83ca68270.png"/>
+
+
 
 
   
   
   </h1>
- **Projeto em Desenvolvimento**
- Acesse :  -https://getmechpwa-8jrpb8cmj-rafaelfigueiredo2203.vercel.app/
+
+ Acesse :  -https://getmechpwa-4xogmmffj-rafaelfigueiredo2203.vercel.app/
 
 
 
