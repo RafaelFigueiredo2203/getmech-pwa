@@ -183,8 +183,7 @@ function AuthProvider({ children }){
 
   async function loadOrdens(){
     await firebase.firestore().collection('services')
-    .where("state", "==", user.state).where("city", "==", user.city)
-    .where("orderDisponibility", "==", true)
+    .where("orderDisponibility", "==", true).where("state", "==", user.state || "city", "==", user.city) //.where()
     .onSnapshot((doc)=>{
 
       let ordens = [];
@@ -258,10 +257,10 @@ function AuthProvider({ children }){
       .where("orderDisponibility", "==", false)
       .onSnapshot((doc)=>{
   
-        let ordens = [];
+        let orders = [];
   
         doc.forEach((ordem)=>{
-        ordens.push({
+        orders.push({
         id:ordem.id,
         ano: ordem.data().ano,
         city: ordem.data().city,
@@ -277,7 +276,7 @@ function AuthProvider({ children }){
   
       })
     });
-   setOrdem(ordens);
+   setOrdem(orders);
    
       })
   
